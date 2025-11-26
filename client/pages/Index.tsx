@@ -63,11 +63,15 @@ export default function Index() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
-  
+
 const destinations = [
   {
     name: "Bali, Indonesia",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1672243776246-dce4535b1628?auto=format&fit=crop&w=800&q=80",
+      "https://nusapenida.org/wp-content/uploads/2023/03/Kelingking-Beach-Nusa-Penida-Bali-Indonesia-from-drone.jpg",
+      "https://images.unsplash.com/photo-1686149380874-18cf15ecda83?auto=format&fit=crop&w=800&q=80"
+    ],
     description: "Crystal clear waters and pristine white sand beaches",
     rating: 4.9,
     tag: "Tropical Paradise",
@@ -76,7 +80,11 @@ const destinations = [
   },
   {
     name: "Maldives",
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+    images: [
+      "https://www.velassaru.com/wp-content/uploads/2025/04/Water-Villa-with-Pool.webp",
+      "https://us.images.westend61.de/0001938090pw/maldives-beach-palm-trees-on-white-sandy-beach-the-maldives-indian-ocean-asia-RHPLF31742.jpg",
+      "https://maldives.baglionihotels.com/swimming_pool_sunset_beach_villa_baglioni_resort_maldives_4662fcb309.jpg"
+    ],
     description: "Overwater bungalows with turquoise lagoons",
     rating: 5.0,
     tag: "Luxury Escape",
@@ -85,7 +93,11 @@ const destinations = [
   },
   {
     name: "Santorini, Greece",
-    image: "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1719607526486-96f27a995fcc?auto=format&fit=crop&w=800&q=80",
+      "https://images.santorini-view.com/ccd494f2_76a6_4baa_a1de_712c667bf988.limghandler.jpg?i=aT0lMmZ1cGxvYWRlZGZpbGVzJTJmMjAyMiUyZjAxJTJmMTIlMmZjY2Q0OTRmMi03NmE2LTRiYWEtYTFkZS03MTJjNjY3YmY5ODguanBlZyZ3PTcyMCZoPTU0MCZzdD10cnVlJmJnPTE2Nzc3MjE1JmNyPXRydWUmYXQ9NA%3D%3D",
+      "https://us.images.westend61.de/0001550680pw/greece-santorini-fira-aerial-view-of-town-situated-at-edge-of-coastal-caldera-RUNF04304.jpg"
+    ],
     description: "Stunning sunsets and golden sandy beaches",
     rating: 4.8,
     tag: "Romantic Getaway",
