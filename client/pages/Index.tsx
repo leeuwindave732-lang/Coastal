@@ -1,5 +1,5 @@
-import { ChevronRight, Menu, X, Waves, MapPin, Star } from "lucide-react";
-import { useState, useRef } from "react";
+import { ChevronRight, Menu, X, Waves, MapPin, Star, ArrowUp } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const fadeInUp = {
