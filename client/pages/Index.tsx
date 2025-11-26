@@ -53,24 +53,30 @@ export default function Index() {
   const destinations = [
     {
       name: "Bali, Indonesia",
-      image: "https://cdn.builder.io/api/v1/image/assets%2F38a0e0323de74fea99834744df0eb6e3%2F97a11d65245f4c6ea0307a7ede6c7a33?format=webp&width=800",
+      image: "https://images.unsplash.com/photo-1537225228614-b19960ecc1de?w=3840&h=2560&fit=crop&q=95",
       description: "Crystal clear waters and pristine white sand beaches",
       rating: 4.9,
       tag: "Tropical Paradise",
+      visitors: "2.4M annually",
+      bestTime: "April - October",
     },
     {
       name: "Maldives",
-      image: "https://cdn.builder.io/api/v1/image/assets%2F38a0e0323de74fea99834744df0eb6e3%2Fa5baa7ddcb9645bcbd4db3309402232a?format=webp&width=800",
+      image: "https://images.unsplash.com/photo-1511707267537-b85faf00021e?w=3840&h=2560&fit=crop&q=95",
       description: "Overwater bungalows with turquoise lagoons",
       rating: 5.0,
       tag: "Luxury Escape",
+      visitors: "1.7M annually",
+      bestTime: "November - March",
     },
     {
       name: "Santorini, Greece",
-      image: "https://cdn.builder.io/api/v1/image/assets%2F38a0e0323de74fea99834744df0eb6e3%2F7c9fc19e980549c3afdf995b2bdf87f1?format=webp&width=800",
+      image: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac646?w=3840&h=2560&fit=crop&q=95",
       description: "Stunning sunsets and golden sandy beaches",
       rating: 4.8,
       tag: "Romantic Getaway",
+      visitors: "1.2M annually",
+      bestTime: "May - September",
     },
   ];
 
