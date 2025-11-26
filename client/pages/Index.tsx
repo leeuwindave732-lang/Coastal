@@ -1,4 +1,12 @@
-import { ChevronRight, Menu, X, Waves, MapPin, Star, ArrowUp } from "lucide-react";
+import {
+  ChevronRight,
+  Menu,
+  X,
+  Waves,
+  MapPin,
+  Star,
+  ArrowUp,
+} from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
@@ -64,55 +72,60 @@ export default function Index() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-const destinations = [
-  {
-    name: "Bali, Indonesia",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600",
-    description: "Crystal clear waters and pristine white sand beaches",
-    rating: 4.9,
-    tag: "Tropical Paradise",
-    visitors: "2.4M annually",
-    bestTime: "April - October",
-  },
-  {
-    name: "Maldives",
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600",
-    description: "Overwater bungalows with turquoise lagoons",
-    rating: 5.0,
-    tag: "Luxury Escape",
-    visitors: "1.7M annually",
-    bestTime: "November - March",
-  },
-  {
-    name: "Santorini, Greece",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600",
-    description: "Stunning sunsets and golden sandy beaches",
-    rating: 4.8,
-    tag: "Romantic Getaway",
-    visitors: "1.2M annually",
-    bestTime: "May - September",
-  },
-];
-
+  const destinations = [
+    {
+      name: "Bali, Indonesia",
+      image:
+        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600",
+      description: "Crystal clear waters and pristine white sand beaches",
+      rating: 4.9,
+      tag: "Tropical Paradise",
+      visitors: "2.4M annually",
+      bestTime: "April - October",
+    },
+    {
+      name: "Maldives",
+      image:
+        "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600",
+      description: "Overwater bungalows with turquoise lagoons",
+      rating: 5.0,
+      tag: "Luxury Escape",
+      visitors: "1.7M annually",
+      bestTime: "November - March",
+    },
+    {
+      name: "Santorini, Greece",
+      image:
+        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600",
+      description: "Stunning sunsets and golden sandy beaches",
+      rating: 4.8,
+      tag: "Romantic Getaway",
+      visitors: "1.2M annually",
+      bestTime: "May - September",
+    },
+  ];
 
   const testimonials = [
     {
       name: "Sarah Mitchell",
       role: "Travel Blogger",
       text: "COAST helped me discover hidden beach gems I never would have found otherwise. The guides are detailed and accurate.",
-      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
+      avatar:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
     },
     {
       name: "Marcus Johnson",
       role: "Adventure Enthusiast",
       text: "The best resource for planning beach adventures. The tips on safety and preparation are incredibly helpful.",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
+      avatar:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
     },
     {
       name: "Elena Rodriguez",
       role: "Photography Professional",
       text: "Perfect for finding beautiful beaches with amazing natural lighting. Already used 3 locations for my shoots.",
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
+      avatar:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
     },
   ];
 
@@ -122,7 +135,7 @@ const destinations = [
       <header className="fixed top-0 w-full bg-background/80 backdrop-blur-lg z-50 border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
-            <motion.h1 
+            <motion.h1
               className="text-3xl font-serif font-bold text-primary"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -130,7 +143,7 @@ const destinations = [
             >
               COAST
             </motion.h1>
-            
+
             {/* Desktop Navigation */}
             <nav className="hidden md:flex gap-8">
               {["Home", "Destinations", "About", "Contact"].map((item) => (
@@ -151,7 +164,11 @@ const destinations = [
               className="md:hidden p-2"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
 
@@ -164,7 +181,11 @@ const destinations = [
               exit={{ opacity: 0, height: 0 }}
             >
               {["Home", "Destinations", "About", "Contact"].map((item) => (
-                <a key={item} href="#" className="text-sm font-medium hover:text-primary transition">
+                <a
+                  key={item}
+                  href="#"
+                  className="text-sm font-medium hover:text-primary transition"
+                >
                   {item}
                 </a>
               ))}
@@ -205,7 +226,9 @@ const destinations = [
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
               >
-                From pristine sandy shores to hidden coves, find the perfect beach destination for your next adventure. Whether you're seeking relaxation or adventure, the coast awaits.
+                From pristine sandy shores to hidden coves, find the perfect
+                beach destination for your next adventure. Whether you're
+                seeking relaxation or adventure, the coast awaits.
               </motion.p>
               <motion.button
                 className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-4 transition-all bg-primary/10 px-6 py-3 rounded-lg hover:bg-primary/20"
@@ -258,13 +281,21 @@ const destinations = [
               </ParallaxImage>
 
               <motion.div className="order-1 md:order-2" {...fadeInUp}>
-                <div className="text-7xl md:text-8xl font-serif font-bold text-muted/40 -mb-8 md:-mb-12">01</div>
-                <p className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest">GETTING STARTED</p>
+                <div className="text-7xl md:text-8xl font-serif font-bold text-muted/40 -mb-8 md:-mb-12">
+                  01
+                </div>
+                <p className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest">
+                  GETTING STARTED
+                </p>
                 <h3 className="text-4xl md:text-5xl font-serif font-bold mb-6">
                   Choose Your Vibe
                 </h3>
                 <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-8">
-                  Whether you're a thrill-seeker looking for surfing opportunities, a relaxation enthusiast seeking tranquility, or an adventurer exploring hidden coves, every beach has something special to offer. Understanding what draws you to the coast is the first step in planning your perfect getaway.
+                  Whether you're a thrill-seeker looking for surfing
+                  opportunities, a relaxation enthusiast seeking tranquility, or
+                  an adventurer exploring hidden coves, every beach has
+                  something special to offer. Understanding what draws you to
+                  the coast is the first step in planning your perfect getaway.
                 </p>
                 <motion.a
                   href="#"
@@ -288,13 +319,21 @@ const destinations = [
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
               <motion.div {...fadeInUp}>
-                <div className="text-7xl md:text-8xl font-serif font-bold text-muted/40 -mb-8 md:-mb-12">02</div>
-                <p className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest">BEACH ESSENTIALS</p>
+                <div className="text-7xl md:text-8xl font-serif font-bold text-muted/40 -mb-8 md:-mb-12">
+                  02
+                </div>
+                <p className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest">
+                  BEACH ESSENTIALS
+                </p>
                 <h3 className="text-4xl md:text-5xl font-serif font-bold mb-6">
                   Pack Smart, Play Safe
                 </h3>
                 <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-8">
-                  The beauty of a beach day is that you don't need much gear. A good sunscreen with SPF protection, comfortable clothing, and a hat are essential. Bring a reusable water bottle to stay hydrated, a light cover-up, and don't forget your camera to capture those picture-perfect moments.
+                  The beauty of a beach day is that you don't need much gear. A
+                  good sunscreen with SPF protection, comfortable clothing, and
+                  a hat are essential. Bring a reusable water bottle to stay
+                  hydrated, a light cover-up, and don't forget your camera to
+                  capture those picture-perfect moments.
                 </p>
                 <motion.a
                   href="#"
@@ -346,13 +385,21 @@ const destinations = [
               </ParallaxImage>
 
               <motion.div className="order-1 md:order-2" {...fadeInUp}>
-                <div className="text-7xl md:text-8xl font-serif font-bold text-muted/40 -mb-8 md:-mb-12">03</div>
-                <p className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest">KNOW BEFORE YOU GO</p>
+                <div className="text-7xl md:text-8xl font-serif font-bold text-muted/40 -mb-8 md:-mb-12">
+                  03
+                </div>
+                <p className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest">
+                  KNOW BEFORE YOU GO
+                </p>
                 <h3 className="text-4xl md:text-5xl font-serif font-bold mb-6">
                   Check the Conditions
                 </h3>
                 <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-8">
-                  Before heading out, always check the weather forecast and tide times. Download a tide app to your phone so you know what to expect. Read local beach reports, understand ocean safety guidelines, and respect warning flags. Knowing the conditions helps you plan the perfect day and stay safe.
+                  Before heading out, always check the weather forecast and tide
+                  times. Download a tide app to your phone so you know what to
+                  expect. Read local beach reports, understand ocean safety
+                  guidelines, and respect warning flags. Knowing the conditions
+                  helps you plan the perfect day and stay safe.
                 </p>
                 <motion.a
                   href="#"
@@ -374,10 +421,7 @@ const destinations = [
           {...staggerContainer}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              className="text-center mb-16"
-              {...fadeInUp}
-            >
+            <motion.div className="text-center mb-16" {...fadeInUp}>
               <p className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest flex items-center justify-center gap-2">
                 <MapPin className="w-4 h-4" />
                 FEATURED DESTINATIONS
@@ -386,7 +430,8 @@ const destinations = [
                 Explore Stunning Beaches
               </h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                Discover some of the world's most beautiful and accessible beach destinations
+                Discover some of the world's most beautiful and accessible beach
+                destinations
               </p>
             </motion.div>
 
@@ -415,17 +460,25 @@ const destinations = [
                         transition={{ delay: idx * 0.2 + 0.3 }}
                         viewport={{ once: true }}
                       >
-                        <span className="text-xs font-bold text-primary-foreground tracking-wide">{dest.tag}</span>
+                        <span className="text-xs font-bold text-primary-foreground tracking-wide">
+                          {dest.tag}
+                        </span>
                       </motion.div>
                     </div>
                     <div className="flex-1 bg-gradient-to-br from-card via-card to-secondary/10 p-6 rounded-2xl border border-border/30 group-hover:border-primary/40 transition-all duration-300 backdrop-blur-sm">
-                      <h3 className="text-2xl font-serif font-bold mb-2 group-hover:text-primary transition-colors duration-300">{dest.name}</h3>
+                      <h3 className="text-2xl font-serif font-bold mb-2 group-hover:text-primary transition-colors duration-300">
+                        {dest.name}
+                      </h3>
                       <p className="text-muted-foreground text-xs mb-4 font-medium tracking-wide">
                         <span className="text-primary">📍</span> {dest.bestTime}
                       </p>
-                      <p className="text-muted-foreground text-sm mb-4 leading-relaxed flex-grow">{dest.description}</p>
+                      <p className="text-muted-foreground text-sm mb-4 leading-relaxed flex-grow">
+                        {dest.description}
+                      </p>
                       <div className="mb-4 p-3 bg-primary/5 rounded-lg border border-primary/10">
-                        <p className="text-xs text-muted-foreground">👥 {dest.visitors}</p>
+                        <p className="text-xs text-muted-foreground">
+                          👥 {dest.visitors}
+                        </p>
                       </div>
                       <div className="flex items-center gap-3 pt-4 border-t border-border/20">
                         <div className="flex items-center gap-1.5">
@@ -440,7 +493,9 @@ const destinations = [
                             />
                           ))}
                         </div>
-                        <span className="text-sm font-bold text-foreground ml-1">{dest.rating}</span>
+                        <span className="text-sm font-bold text-foreground ml-1">
+                          {dest.rating}
+                        </span>
                       </div>
                     </div>
                   </motion.div>
@@ -458,10 +513,7 @@ const destinations = [
           {...staggerContainer}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              className="text-center mb-16"
-              {...fadeInUp}
-            >
+            <motion.div className="text-center mb-16" {...fadeInUp}>
               <p className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest">
                 TESTIMONIALS
               </p>
@@ -481,7 +533,9 @@ const destinations = [
                   viewport={{ once: true }}
                   whileHover={{ y: -5 }}
                 >
-                  <p className="text-muted-foreground mb-6 italic">"{testimonial.text}"</p>
+                  <p className="text-muted-foreground mb-6 italic">
+                    "{testimonial.text}"
+                  </p>
                   <div className="flex items-center gap-4">
                     <img
                       src={testimonial.avatar}
@@ -489,8 +543,12 @@ const destinations = [
                       className="w-12 h-12 rounded-full"
                     />
                     <div>
-                      <p className="font-semibold text-foreground">{testimonial.name}</p>
-                      <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                      <p className="font-semibold text-foreground">
+                        {testimonial.name}
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        {testimonial.role}
+                      </p>
                     </div>
                   </div>
                 </motion.div>
@@ -501,17 +559,15 @@ const destinations = [
       </ParallaxSection>
 
       {/* Newsletter Section */}
-      <motion.section
-        className="py-16 md:py-24 relative"
-        {...fadeInUp}
-      >
+      <motion.section className="py-16 md:py-24 relative" {...fadeInUp}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-br from-primary/10 via-primary/5 to-background rounded-xl p-12 border border-primary/20">
             <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4 text-center">
               Stay Updated
             </h2>
             <p className="text-muted-foreground text-center mb-8">
-              Get the latest beach guides, travel tips, and exclusive destination recommendations delivered to your inbox.
+              Get the latest beach guides, travel tips, and exclusive
+              destination recommendations delivered to your inbox.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <input
@@ -536,16 +592,14 @@ const destinations = [
 
       {/* CTA Section */}
       <ParallaxSection>
-        <motion.section
-          className="py-16 md:py-24 relative"
-          {...fadeInUp}
-        >
+        <motion.section className="py-16 md:py-24 relative" {...fadeInUp}>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
               Ready to Explore?
             </h2>
             <p className="text-muted-foreground text-lg mb-8">
-              Browse our comprehensive guides and start planning your next beach adventure today.
+              Browse our comprehensive guides and start planning your next beach
+              adventure today.
             </p>
             <motion.button
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
@@ -566,30 +620,50 @@ const destinations = [
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 mb-12">
             <div>
-              <h3 className="text-3xl font-serif font-bold mb-4 text-primary">COAST</h3>
+              <h3 className="text-3xl font-serif font-bold mb-4 text-primary">
+                COAST
+              </h3>
               <p className="text-muted-foreground">
-                Discover the beauty of coastal adventures. From pristine beaches to hidden coves, explore the world's most beautiful shores.
+                Discover the beauty of coastal adventures. From pristine beaches
+                to hidden coves, explore the world's most beautiful shores.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-8">
               <div>
-                <h4 className="font-semibold mb-4 text-foreground">Quick Links</h4>
+                <h4 className="font-semibold mb-4 text-foreground">
+                  Quick Links
+                </h4>
                 <ul className="space-y-2">
-                  {["About Us", "Destinations", "Blog", "Contact"].map((link) => (
-                    <li key={link}>
-                      <a href="#" className="text-muted-foreground hover:text-primary transition">
-                        {link}
-                      </a>
-                    </li>
-                  ))}
+                  {["About Us", "Destinations", "Blog", "Contact"].map(
+                    (link) => (
+                      <li key={link}>
+                        <a
+                          href="#"
+                          className="text-muted-foreground hover:text-primary transition"
+                        >
+                          {link}
+                        </a>
+                      </li>
+                    ),
+                  )}
                 </ul>
               </div>
               <div>
-                <h4 className="font-semibold mb-4 text-foreground">More Info</h4>
+                <h4 className="font-semibold mb-4 text-foreground">
+                  More Info
+                </h4>
                 <ul className="space-y-2">
-                  {["Privacy Policy", "Terms & Conditions", "Sustainability", "Partners"].map((link) => (
+                  {[
+                    "Privacy Policy",
+                    "Terms & Conditions",
+                    "Sustainability",
+                    "Partners",
+                  ].map((link) => (
                     <li key={link}>
-                      <a href="#" className="text-muted-foreground hover:text-primary transition">
+                      <a
+                        href="#"
+                        className="text-muted-foreground hover:text-primary transition"
+                      >
                         {link}
                       </a>
                     </li>
@@ -600,7 +674,8 @@ const destinations = [
           </div>
           <div className="border-t border-border pt-8">
             <p className="text-muted-foreground text-sm">
-              Copyright © 2025 COAST. All rights reserved. | Built by LeeuwinDev
+              Copyright © 2025 COAST. All rights reserved. | Built by
+              LeeuwinDev
             </p>
           </div>
         </div>
