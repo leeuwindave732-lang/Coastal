@@ -7,12 +7,22 @@ export default function Index() {
       <header className="fixed top-0 w-full bg-background/95 backdrop-blur z-50 border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
-            <h1 className="text-3xl font-serif font-bold text-primary">COAST</h1>
+            <h1 className="text-3xl font-serif font-bold text-primary">
+              COAST
+            </h1>
             <nav className="hidden md:flex gap-8">
-              <a href="#" className="hover:text-primary transition">Home</a>
-              <a href="#" className="hover:text-primary transition">About</a>
-              <a href="#" className="hover:text-primary transition">Destinations</a>
-              <a href="#" className="hover:text-primary transition">Contact</a>
+              <a href="#" className="hover:text-primary transition">
+                Home
+              </a>
+              <a href="#" className="hover:text-primary transition">
+                About
+              </a>
+              <a href="#" className="hover:text-primary transition">
+                Destinations
+              </a>
+              <a href="#" className="hover:text-primary transition">
+                Contact
+              </a>
             </nav>
           </div>
         </div>
@@ -24,12 +34,16 @@ export default function Index() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div>
-              <p className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest">EXPLORE THE COAST</p>
+              <p className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest">
+                EXPLORE THE COAST
+              </p>
               <h2 className="text-5xl md:text-7xl font-serif font-bold mb-6 leading-tight">
                 Discover Your Next Beach Escape
               </h2>
               <p className="text-muted-foreground text-lg md:text-xl leading-relaxed mb-8">
-                From pristine sandy shores to hidden coves, find the perfect beach destination for your next adventure. Whether you're seeking relaxation or adventure, the coast awaits.
+                From pristine sandy shores to hidden coves, find the perfect
+                beach destination for your next adventure. Whether you're
+                seeking relaxation or adventure, the coast awaits.
               </p>
               <button className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-4 transition-all">
                 Start Exploring <ChevronRight className="w-5 h-5" />
@@ -58,15 +72,26 @@ export default function Index() {
               />
             </div>
             <div className="order-1 md:order-2">
-              <div className="text-7xl md:text-8xl font-serif font-bold text-muted/40 -mb-8 md:-mb-12">01</div>
-              <p className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest">GETTING STARTED</p>
+              <div className="text-7xl md:text-8xl font-serif font-bold text-muted/40 -mb-8 md:-mb-12">
+                01
+              </div>
+              <p className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest">
+                GETTING STARTED
+              </p>
               <h3 className="text-4xl md:text-5xl font-serif font-bold mb-6">
                 Choose Your Vibe
               </h3>
               <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-8">
-                Whether you're a thrill-seeker looking for surfing opportunities, a relaxation enthusiast seeking tranquility, or an adventurer exploring hidden coves, every beach has something special to offer. Understanding what draws you to the coast is the first step in planning your perfect getaway.
+                Whether you're a thrill-seeker looking for surfing
+                opportunities, a relaxation enthusiast seeking tranquility, or
+                an adventurer exploring hidden coves, every beach has something
+                special to offer. Understanding what draws you to the coast is
+                the first step in planning your perfect getaway.
               </p>
-              <a href="#" className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-4 transition-all">
+              <a
+                href="#"
+                className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-4 transition-all"
+              >
                 read more <ChevronRight className="w-4 h-4" />
               </a>
             </div>
@@ -79,15 +104,26 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div>
-              <div className="text-7xl md:text-8xl font-serif font-bold text-muted/40 -mb-8 md:-mb-12">02</div>
-              <p className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest">BEACH ESSENTIALS</p>
+              <div className="text-7xl md:text-8xl font-serif font-bold text-muted/40 -mb-8 md:-mb-12">
+                02
+              </div>
+              <p className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest">
+                BEACH ESSENTIALS
+              </p>
               <h3 className="text-4xl md:text-5xl font-serif font-bold mb-6">
                 Pack Smart, Play Safe
               </h3>
               <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-8">
-                The beauty of a beach day is that you don't need much gear. A good sunscreen with SPF protection, comfortable clothing, and a hat are essential. Bring a reusable water bottle to stay hydrated, a light cover-up, and don't forget your camera to capture those picture-perfect moments.
+                The beauty of a beach day is that you don't need much gear. A
+                good sunscreen with SPF protection, comfortable clothing, and a
+                hat are essential. Bring a reusable water bottle to stay
+                hydrated, a light cover-up, and don't forget your camera to
+                capture those picture-perfect moments.
               </p>
-              <a href="#" className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-4 transition-all">
+              <a
+                href="#"
+                className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-4 transition-all"
+              >
                 read more <ChevronRight className="w-4 h-4" />
               </a>
             </div>
@@ -114,15 +150,26 @@ export default function Index() {
               />
             </div>
             <div className="order-1 md:order-2">
-              <div className="text-7xl md:text-8xl font-serif font-bold text-muted/40 -mb-8 md:-mb-12">03</div>
-              <p className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest">KNOW BEFORE YOU GO</p>
+              <div className="text-7xl md:text-8xl font-serif font-bold text-muted/40 -mb-8 md:-mb-12">
+                03
+              </div>
+              <p className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest">
+                KNOW BEFORE YOU GO
+              </p>
               <h3 className="text-4xl md:text-5xl font-serif font-bold mb-6">
                 Check the Conditions
               </h3>
               <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-8">
-                Before heading out, always check the weather forecast and tide times. Download a tide app to your phone so you know what to expect. Read local beach reports, understand ocean safety guidelines, and respect warning flags. Knowing the conditions helps you plan the perfect day and stay safe.
+                Before heading out, always check the weather forecast and tide
+                times. Download a tide app to your phone so you know what to
+                expect. Read local beach reports, understand ocean safety
+                guidelines, and respect warning flags. Knowing the conditions
+                helps you plan the perfect day and stay safe.
               </p>
-              <a href="#" className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-4 transition-all">
+              <a
+                href="#"
+                className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-4 transition-all"
+              >
                 read more <ChevronRight className="w-4 h-4" />
               </a>
             </div>
@@ -135,28 +182,91 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <h3 className="text-3xl font-serif font-bold mb-4 text-primary">COAST</h3>
+              <h3 className="text-3xl font-serif font-bold mb-4 text-primary">
+                COAST
+              </h3>
               <p className="text-muted-foreground">
-                Discover the beauty of coastal adventures. From pristine beaches to hidden coves, explore the world's most beautiful shores.
+                Discover the beauty of coastal adventures. From pristine beaches
+                to hidden coves, explore the world's most beautiful shores.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-8">
               <div>
-                <h4 className="font-semibold mb-4 text-foreground">Quick Links</h4>
+                <h4 className="font-semibold mb-4 text-foreground">
+                  Quick Links
+                </h4>
                 <ul className="space-y-2">
-                  <li><a href="#" className="text-muted-foreground hover:text-primary transition">About Us</a></li>
-                  <li><a href="#" className="text-muted-foreground hover:text-primary transition">Destinations</a></li>
-                  <li><a href="#" className="text-muted-foreground hover:text-primary transition">Blog</a></li>
-                  <li><a href="#" className="text-muted-foreground hover:text-primary transition">Contact</a></li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-muted-foreground hover:text-primary transition"
+                    >
+                      About Us
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-muted-foreground hover:text-primary transition"
+                    >
+                      Destinations
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-muted-foreground hover:text-primary transition"
+                    >
+                      Blog
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-muted-foreground hover:text-primary transition"
+                    >
+                      Contact
+                    </a>
+                  </li>
                 </ul>
               </div>
               <div>
-                <h4 className="font-semibold mb-4 text-foreground">More Info</h4>
+                <h4 className="font-semibold mb-4 text-foreground">
+                  More Info
+                </h4>
                 <ul className="space-y-2">
-                  <li><a href="#" className="text-muted-foreground hover:text-primary transition">Privacy Policy</a></li>
-                  <li><a href="#" className="text-muted-foreground hover:text-primary transition">Terms & Conditions</a></li>
-                  <li><a href="#" className="text-muted-foreground hover:text-primary transition">Sustainability</a></li>
-                  <li><a href="#" className="text-muted-foreground hover:text-primary transition">Partners</a></li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-muted-foreground hover:text-primary transition"
+                    >
+                      Privacy Policy
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-muted-foreground hover:text-primary transition"
+                    >
+                      Terms & Conditions
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-muted-foreground hover:text-primary transition"
+                    >
+                      Sustainability
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-muted-foreground hover:text-primary transition"
+                    >
+                      Partners
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>
