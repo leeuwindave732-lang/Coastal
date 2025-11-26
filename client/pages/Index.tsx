@@ -67,7 +67,7 @@ export default function Index() {
   const destinations = [
     {
       name: "Bali, Indonesia",
-      image: "https://unsplash.com/photos/island-under-white-sky-exFdOWkYBQw",
+      image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600",
       description: "Crystal clear waters and pristine white sand beaches",
       rating: 4.9,
       tag: "Tropical Paradise",
@@ -76,7 +76,7 @@ export default function Index() {
     },
     {
       name: "Maldives",
-      image: "https://unsplash.com/photos/green-trees-near-body-of-water-under-blue-sky-during-daytime-xQwa0HbMfYM",
+      image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600",
       description: "Overwater bungalows with turquoise lagoons",
       rating: 5.0,
       tag: "Luxury Escape",
@@ -85,7 +85,7 @@ export default function Index() {
     },
     {
       name: "Santorini, Greece",
-      image: "https://unsplash.com/photos/a-view-of-a-blue-domed-building-on-the-edge-of-a-cliff-DbBwe7nGr3k",
+      image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600",
       description: "Stunning sunsets and golden sandy beaches",
       rating: 4.8,
       tag: "Romantic Getaway",
