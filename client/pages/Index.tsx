@@ -210,7 +210,7 @@ export default function Index() {
               >
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent z-10"></div>
                 <img
-                  src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=600&fit=crop"
+                  src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=3840&h=2560&fit=crop&q=95"
                   alt="Beach waves"
                   className="w-full h-full object-cover"
                 />
@@ -235,7 +235,7 @@ export default function Index() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent z-10 group-hover:from-primary/20 transition-all duration-300"></div>
                   <img
-                    src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop"
+                    src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=3840&h=2560&fit=crop&q=95"
                     alt="Surfing at sunset"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
@@ -297,7 +297,7 @@ export default function Index() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent z-10 group-hover:from-primary/20 transition-all duration-300"></div>
                   <img
-                    src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&h=600&fit=crop"
+                    src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=3840&h=2560&fit=crop&q=95"
                     alt="Beach essentials and sunscreen"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
@@ -323,7 +323,7 @@ export default function Index() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent z-10 group-hover:from-primary/20 transition-all duration-300"></div>
                   <img
-                    src="https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=800&h=600&fit=crop"
+                    src="https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=3840&h=2560&fit=crop&q=95"
                     alt="Ocean waves and weather"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
@@ -404,8 +404,14 @@ export default function Index() {
                       </motion.div>
                     </div>
                     <div className="flex-1 bg-gradient-to-br from-card via-card to-secondary/10 p-6 rounded-2xl border border-border/30 group-hover:border-primary/40 transition-all duration-300 backdrop-blur-sm">
-                      <h3 className="text-2xl font-serif font-bold mb-3 group-hover:text-primary transition-colors duration-300">{dest.name}</h3>
-                      <p className="text-muted-foreground text-sm mb-6 leading-relaxed flex-grow">{dest.description}</p>
+                      <h3 className="text-2xl font-serif font-bold mb-2 group-hover:text-primary transition-colors duration-300">{dest.name}</h3>
+                      <p className="text-muted-foreground text-xs mb-4 font-medium tracking-wide">
+                        <span className="text-primary">📍</span> {dest.bestTime}
+                      </p>
+                      <p className="text-muted-foreground text-sm mb-4 leading-relaxed flex-grow">{dest.description}</p>
+                      <div className="mb-4 p-3 bg-primary/5 rounded-lg border border-primary/10">
+                        <p className="text-xs text-muted-foreground">👥 {dest.visitors}</p>
+                      </div>
                       <div className="flex items-center gap-3 pt-4 border-t border-border/20">
                         <div className="flex items-center gap-1.5">
                           {Array.from({ length: 5 }).map((_, i) => (
