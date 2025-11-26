@@ -63,11 +63,11 @@ export default function Index() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
-
- const destinations = [
+  
+const destinations = [
   {
     name: "Bali, Indonesia",
-    image: "https://images.unsplash.com/photo-1595127745756-32f7247128ae?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
     description: "Crystal clear waters and pristine white sand beaches",
     rating: 4.9,
     tag: "Tropical Paradise",
@@ -76,7 +76,7 @@ export default function Index() {
   },
   {
     name: "Maldives",
-    image: "https://images.unsplash.com/photo-1661956600656-6629f90e9f0f?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
     description: "Overwater bungalows with turquoise lagoons",
     rating: 5.0,
     tag: "Luxury Escape",
@@ -85,7 +85,7 @@ export default function Index() {
   },
   {
     name: "Santorini, Greece",
-    image: "https://images.unsplash.com/photo-1531169967180-40f0c1dc40bd?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800&q=80",
     description: "Stunning sunsets and golden sandy beaches",
     rating: 4.8,
     tag: "Romantic Getaway",
@@ -93,6 +93,7 @@ export default function Index() {
     bestTime: "May - September",
   },
 ];
+
 
   const testimonials = [
     {
