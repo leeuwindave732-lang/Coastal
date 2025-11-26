@@ -53,21 +53,24 @@ export default function Index() {
   const destinations = [
     {
       name: "Bali, Indonesia",
-      image: "https://cdn.builder.io/api/v1/image/assets%2F38a0e0323de74fea99834744df0eb6e3%2F5a88a4c5a58d42429cf026bae640dd53?format=webp&width=800",
+      image: "https://cdn.builder.io/api/v1/image/assets%2F38a0e0323de74fea99834744df0eb6e3%2F97a11d65245f4c6ea0307a7ede6c7a33?format=webp&width=800",
       description: "Crystal clear waters and pristine white sand beaches",
       rating: 4.9,
+      tag: "Tropical Paradise",
     },
     {
       name: "Maldives",
-      image: "https://cdn.builder.io/api/v1/image/assets%2F38a0e0323de74fea99834744df0eb6e3%2F32f8bbe6cffe4efcb1b24e1ebe4b40e3?format=webp&width=800",
+      image: "https://cdn.builder.io/api/v1/image/assets%2F38a0e0323de74fea99834744df0eb6e3%2Fa5baa7ddcb9645bcbd4db3309402232a?format=webp&width=800",
       description: "Overwater bungalows with turquoise lagoons",
       rating: 5.0,
+      tag: "Luxury Escape",
     },
     {
       name: "Santorini, Greece",
-      image: "https://cdn.builder.io/api/v1/image/assets%2F38a0e0323de74fea99834744df0eb6e3%2F176082eff9a048e1ba9af612e69fe95c?format=webp&width=800",
+      image: "https://cdn.builder.io/api/v1/image/assets%2F38a0e0323de74fea99834744df0eb6e3%2F7c9fc19e980549c3afdf995b2bdf87f1?format=webp&width=800",
       description: "Stunning sunsets and golden sandy beaches",
       rating: 4.8,
+      tag: "Romantic Getaway",
     },
   ];
 
@@ -370,34 +373,48 @@ export default function Index() {
               {destinations.map((dest, idx) => (
                 <ParallaxImage key={idx} offset={idx === 1 ? 0 : 20}>
                   <motion.div
-                    className="group cursor-pointer"
+                    className="group cursor-pointer h-full flex flex-col"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: idx * 0.2 }}
                     viewport={{ once: true }}
+                    whileHover={{ y: -8 }}
                   >
-                    <div className="relative h-64 rounded-lg overflow-hidden mb-4">
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent z-10 group-hover:from-primary/30 transition-all duration-300"></div>
+                    <div className="relative h-72 rounded-2xl overflow-hidden mb-6 shadow-xl group-hover:shadow-2xl transition-all duration-300 border border-border/40 group-hover:border-primary/50">
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/30 to-transparent z-10 group-hover:from-primary/50 group-hover:via-primary/10 transition-all duration-300"></div>
                       <img
                         src={dest.image}
                         alt={dest.name}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
+                      <motion.div
+                        className="absolute top-4 right-4 z-20 bg-primary/95 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg"
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: idx * 0.2 + 0.3 }}
+                        viewport={{ once: true }}
+                      >
+                        <span className="text-xs font-bold text-primary-foreground tracking-wide">{dest.tag}</span>
+                      </motion.div>
                     </div>
-                    <h3 className="text-xl font-serif font-bold mb-2">{dest.name}</h3>
-                    <p className="text-muted-foreground text-sm mb-4">{dest.description}</p>
-                    <div className="flex items-center gap-1">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <Star
-                          key={i}
-                          className={`w-4 h-4 ${
-                            i < Math.floor(dest.rating)
-                              ? "fill-primary text-primary"
-                              : "text-muted"
-                          }`}
-                        />
-                      ))}
-                      <span className="text-sm text-muted-foreground ml-2">{dest.rating}</span>
+                    <div className="flex-1 bg-gradient-to-br from-card via-card to-secondary/10 p-6 rounded-2xl border border-border/30 group-hover:border-primary/40 transition-all duration-300 backdrop-blur-sm">
+                      <h3 className="text-2xl font-serif font-bold mb-3 group-hover:text-primary transition-colors duration-300">{dest.name}</h3>
+                      <p className="text-muted-foreground text-sm mb-6 leading-relaxed flex-grow">{dest.description}</p>
+                      <div className="flex items-center gap-3 pt-4 border-t border-border/20">
+                        <div className="flex items-center gap-1.5">
+                          {Array.from({ length: 5 }).map((_, i) => (
+                            <Star
+                              key={i}
+                              className={`w-4 h-4 transition-all ${
+                                i < Math.floor(dest.rating)
+                                  ? "fill-primary text-primary"
+                                  : "text-muted"
+                              }`}
+                            />
+                          ))}
+                        </div>
+                        <span className="text-sm font-bold text-foreground ml-1">{dest.rating}</span>
+                      </div>
                     </div>
                   </motion.div>
                 </ParallaxImage>
@@ -556,7 +573,7 @@ export default function Index() {
           </div>
           <div className="border-t border-border pt-8">
             <p className="text-muted-foreground text-sm">
-              Copyright © 2024 COAST. All rights reserved. | Built by LeeuwinDev
+              Copyright © 2025 COAST. All rights reserved. | Built by LeeuwinDev
             </p>
           </div>
         </div>
