@@ -604,6 +604,19 @@ export default function Index() {
           </div>
         </div>
       </motion.footer>
+
+      {/* Scroll to Top Button */}
+      <motion.button
+        onClick={scrollToTop}
+        className="fixed bottom-8 right-8 p-4 bg-primary text-primary-foreground rounded-full shadow-lg hover:shadow-xl hover:bg-primary/90 transition-all z-40"
+        initial={{ opacity: 0, y: 20 }}
+        animate={showScrollTop ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        aria-label="Scroll to top"
+      >
+        <ArrowUp className="w-5 h-5" />
+      </motion.button>
     </div>
   );
 }
