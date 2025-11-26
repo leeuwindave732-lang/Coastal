@@ -1,6 +1,6 @@
 import { ChevronRight, Menu, X, Waves, MapPin, Star } from "lucide-react";
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -16,25 +16,56 @@ const staggerContainer = {
   viewport: { once: true },
 };
 
+function ParallaxImage({ children, offset = 50 }) {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], [0, offset]);
+
+  return (
+    <motion.div ref={ref} style={{ y }} className="w-full h-full">
+      {children}
+    </motion.div>
+  );
+}
+
+function ParallaxSection({ children }) {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start center", "end center"],
+  });
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.8]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.95, 1, 0.95]);
+
+  return (
+    <motion.div ref={ref} style={{ opacity, scale }}>
+      {children}
+    </motion.div>
+  );
+}
+
 export default function Index() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const destinations = [
     {
       name: "Bali, Indonesia",
-      image: "https://images.unsplash.com/photo-1537225228614-b19960ecc1de?w=500&h=400&fit=crop",
+      image: "https://cdn.builder.io/api/v1/image/assets%2F38a0e0323de74fea99834744df0eb6e3%2F5a88a4c5a58d42429cf026bae640dd53?format=webp&width=800",
       description: "Crystal clear waters and pristine white sand beaches",
       rating: 4.9,
     },
     {
       name: "Maldives",
-      image: "https://images.unsplash.com/photo-1511707267537-b85faf00021e?w=500&h=400&fit=crop",
+      image: "https://cdn.builder.io/api/v1/image/assets%2F38a0e0323de74fea99834744df0eb6e3%2F32f8bbe6cffe4efcb1b24e1ebe4b40e3?format=webp&width=800",
       description: "Overwater bungalows with turquoise lagoons",
       rating: 5.0,
     },
     {
       name: "Santorini, Greece",
-      image: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac646?w=500&h=400&fit=crop",
+      image: "https://cdn.builder.io/api/v1/image/assets%2F38a0e0323de74fea99834744df0eb6e3%2F176082eff9a048e1ba9af612e69fe95c?format=webp&width=800",
       description: "Stunning sunsets and golden sandy beaches",
       rating: 4.8,
     },
@@ -62,7 +93,7 @@ export default function Index() {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground overflow-hidden">
       {/* Header */}
       <header className="fixed top-0 w-full bg-background/80 backdrop-blur-lg z-50 border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -118,15 +149,11 @@ export default function Index() {
         </div>
       </header>
 
-      {/* Hero Section */}
+      {/* Hero Section with Parallax */}
       <section className="pt-32 pb-16 md:pt-40 md:pb-24 relative overflow-hidden">
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-cyan-900/30 via-background to-background"
-          animate={{
-            backgroundPosition: ["0% 0%", "100% 100%"],
-          }}
-          transition={{ duration: 8, repeat: Infinity, repeatType: "reverse" }}
-        ></motion.div>
+        <ParallaxImage offset={80}>
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/30 via-background to-background"></div>
+        </ParallaxImage>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
@@ -165,250 +192,269 @@ export default function Index() {
               </motion.button>
             </motion.div>
 
-            <motion.div
-              className="relative h-96 md:h-full rounded-lg overflow-hidden"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent z-10"></div>
-              <img
-                src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=600&fit=crop"
-                alt="Beach waves"
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
+            <ParallaxImage offset={-40}>
+              <motion.div
+                className="relative h-96 md:h-full rounded-lg overflow-hidden"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent z-10"></div>
+                <img
+                  src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=600&fit=crop"
+                  alt="Beach waves"
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+            </ParallaxImage>
           </div>
         </div>
       </section>
 
       {/* Section 01 - Getting Started */}
-      <motion.section
-        className="py-16 md:py-24 relative"
-        {...staggerContainer}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <motion.div
-              className="relative h-80 md:h-96 rounded-lg overflow-hidden order-2 md:order-1 group"
-              {...fadeInUp}
-            >
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent z-10 group-hover:from-primary/20 transition-all duration-300"></div>
-              <img
-                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop"
-                alt="Surfing at sunset"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-            </motion.div>
+      <ParallaxSection>
+        <motion.section
+          className="py-16 md:py-24 relative"
+          {...staggerContainer}
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+              <ParallaxImage offset={30}>
+                <motion.div
+                  className="relative h-80 md:h-96 rounded-lg overflow-hidden order-2 md:order-1 group"
+                  {...fadeInUp}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent z-10 group-hover:from-primary/20 transition-all duration-300"></div>
+                  <img
+                    src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop"
+                    alt="Surfing at sunset"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </motion.div>
+              </ParallaxImage>
 
-            <motion.div className="order-1 md:order-2" {...fadeInUp}>
-              <div className="text-7xl md:text-8xl font-serif font-bold text-muted/40 -mb-8 md:-mb-12">01</div>
-              <p className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest">GETTING STARTED</p>
-              <h3 className="text-4xl md:text-5xl font-serif font-bold mb-6">
-                Choose Your Vibe
-              </h3>
-              <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-8">
-                Whether you're a thrill-seeker looking for surfing opportunities, a relaxation enthusiast seeking tranquility, or an adventurer exploring hidden coves, every beach has something special to offer. Understanding what draws you to the coast is the first step in planning your perfect getaway.
-              </p>
-              <motion.a
-                href="#"
-                className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-4 transition-all"
-                whileHover={{ x: 5 }}
-              >
-                read more <ChevronRight className="w-4 h-4" />
-              </motion.a>
-            </motion.div>
+              <motion.div className="order-1 md:order-2" {...fadeInUp}>
+                <div className="text-7xl md:text-8xl font-serif font-bold text-muted/40 -mb-8 md:-mb-12">01</div>
+                <p className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest">GETTING STARTED</p>
+                <h3 className="text-4xl md:text-5xl font-serif font-bold mb-6">
+                  Choose Your Vibe
+                </h3>
+                <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-8">
+                  Whether you're a thrill-seeker looking for surfing opportunities, a relaxation enthusiast seeking tranquility, or an adventurer exploring hidden coves, every beach has something special to offer. Understanding what draws you to the coast is the first step in planning your perfect getaway.
+                </p>
+                <motion.a
+                  href="#"
+                  className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-4 transition-all"
+                  whileHover={{ x: 5 }}
+                >
+                  read more <ChevronRight className="w-4 h-4" />
+                </motion.a>
+              </motion.div>
+            </div>
           </div>
-        </div>
-      </motion.section>
+        </motion.section>
+      </ParallaxSection>
 
       {/* Section 02 - Beach Essentials */}
-      <motion.section
-        className="py-16 md:py-24 relative"
-        {...staggerContainer}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <motion.div {...fadeInUp}>
-              <div className="text-7xl md:text-8xl font-serif font-bold text-muted/40 -mb-8 md:-mb-12">02</div>
-              <p className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest">BEACH ESSENTIALS</p>
-              <h3 className="text-4xl md:text-5xl font-serif font-bold mb-6">
-                Pack Smart, Play Safe
-              </h3>
-              <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-8">
-                The beauty of a beach day is that you don't need much gear. A good sunscreen with SPF protection, comfortable clothing, and a hat are essential. Bring a reusable water bottle to stay hydrated, a light cover-up, and don't forget your camera to capture those picture-perfect moments.
-              </p>
-              <motion.a
-                href="#"
-                className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-4 transition-all"
-                whileHover={{ x: 5 }}
-              >
-                read more <ChevronRight className="w-4 h-4" />
-              </motion.a>
-            </motion.div>
+      <ParallaxSection>
+        <motion.section
+          className="py-16 md:py-24 relative"
+          {...staggerContainer}
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+              <motion.div {...fadeInUp}>
+                <div className="text-7xl md:text-8xl font-serif font-bold text-muted/40 -mb-8 md:-mb-12">02</div>
+                <p className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest">BEACH ESSENTIALS</p>
+                <h3 className="text-4xl md:text-5xl font-serif font-bold mb-6">
+                  Pack Smart, Play Safe
+                </h3>
+                <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-8">
+                  The beauty of a beach day is that you don't need much gear. A good sunscreen with SPF protection, comfortable clothing, and a hat are essential. Bring a reusable water bottle to stay hydrated, a light cover-up, and don't forget your camera to capture those picture-perfect moments.
+                </p>
+                <motion.a
+                  href="#"
+                  className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-4 transition-all"
+                  whileHover={{ x: 5 }}
+                >
+                  read more <ChevronRight className="w-4 h-4" />
+                </motion.a>
+              </motion.div>
 
-            <motion.div
-              className="relative h-80 md:h-96 rounded-lg overflow-hidden group"
-              {...fadeInUp}
-            >
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent z-10 group-hover:from-primary/20 transition-all duration-300"></div>
-              <img
-                src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&h=600&fit=crop"
-                alt="Beach essentials and sunscreen"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-            </motion.div>
+              <ParallaxImage offset={-30}>
+                <motion.div
+                  className="relative h-80 md:h-96 rounded-lg overflow-hidden group"
+                  {...fadeInUp}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent z-10 group-hover:from-primary/20 transition-all duration-300"></div>
+                  <img
+                    src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&h=600&fit=crop"
+                    alt="Beach essentials and sunscreen"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </motion.div>
+              </ParallaxImage>
+            </div>
           </div>
-        </div>
-      </motion.section>
+        </motion.section>
+      </ParallaxSection>
 
       {/* Section 03 - Know Before You Go */}
-      <motion.section
-        className="py-16 md:py-24 relative"
-        {...staggerContainer}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <motion.div
-              className="relative h-80 md:h-96 rounded-lg overflow-hidden order-2 md:order-1 group"
-              {...fadeInUp}
-            >
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent z-10 group-hover:from-primary/20 transition-all duration-300"></div>
-              <img
-                src="https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=800&h=600&fit=crop"
-                alt="Ocean waves and weather"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-            </motion.div>
+      <ParallaxSection>
+        <motion.section
+          className="py-16 md:py-24 relative"
+          {...staggerContainer}
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+              <ParallaxImage offset={30}>
+                <motion.div
+                  className="relative h-80 md:h-96 rounded-lg overflow-hidden order-2 md:order-1 group"
+                  {...fadeInUp}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent z-10 group-hover:from-primary/20 transition-all duration-300"></div>
+                  <img
+                    src="https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=800&h=600&fit=crop"
+                    alt="Ocean waves and weather"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </motion.div>
+              </ParallaxImage>
 
-            <motion.div className="order-1 md:order-2" {...fadeInUp}>
-              <div className="text-7xl md:text-8xl font-serif font-bold text-muted/40 -mb-8 md:-mb-12">03</div>
-              <p className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest">KNOW BEFORE YOU GO</p>
-              <h3 className="text-4xl md:text-5xl font-serif font-bold mb-6">
-                Check the Conditions
-              </h3>
-              <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-8">
-                Before heading out, always check the weather forecast and tide times. Download a tide app to your phone so you know what to expect. Read local beach reports, understand ocean safety guidelines, and respect warning flags. Knowing the conditions helps you plan the perfect day and stay safe.
-              </p>
-              <motion.a
-                href="#"
-                className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-4 transition-all"
-                whileHover={{ x: 5 }}
-              >
-                read more <ChevronRight className="w-4 h-4" />
-              </motion.a>
-            </motion.div>
+              <motion.div className="order-1 md:order-2" {...fadeInUp}>
+                <div className="text-7xl md:text-8xl font-serif font-bold text-muted/40 -mb-8 md:-mb-12">03</div>
+                <p className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest">KNOW BEFORE YOU GO</p>
+                <h3 className="text-4xl md:text-5xl font-serif font-bold mb-6">
+                  Check the Conditions
+                </h3>
+                <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-8">
+                  Before heading out, always check the weather forecast and tide times. Download a tide app to your phone so you know what to expect. Read local beach reports, understand ocean safety guidelines, and respect warning flags. Knowing the conditions helps you plan the perfect day and stay safe.
+                </p>
+                <motion.a
+                  href="#"
+                  className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-4 transition-all"
+                  whileHover={{ x: 5 }}
+                >
+                  read more <ChevronRight className="w-4 h-4" />
+                </motion.a>
+              </motion.div>
+            </div>
           </div>
-        </div>
-      </motion.section>
+        </motion.section>
+      </ParallaxSection>
 
       {/* Featured Destinations Section */}
-      <motion.section
-        className="py-16 md:py-24 relative"
-        {...staggerContainer}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="text-center mb-16"
-            {...fadeInUp}
-          >
-            <p className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest flex items-center justify-center gap-2">
-              <MapPin className="w-4 h-4" />
-              FEATURED DESTINATIONS
-            </p>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-              Explore Stunning Beaches
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Discover some of the world's most beautiful and accessible beach destinations
-            </p>
-          </motion.div>
+      <ParallaxSection>
+        <motion.section
+          className="py-16 md:py-24 relative"
+          {...staggerContainer}
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              className="text-center mb-16"
+              {...fadeInUp}
+            >
+              <p className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest flex items-center justify-center gap-2">
+                <MapPin className="w-4 h-4" />
+                FEATURED DESTINATIONS
+              </p>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
+                Explore Stunning Beaches
+              </h2>
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                Discover some of the world's most beautiful and accessible beach destinations
+              </p>
+            </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {destinations.map((dest, idx) => (
-              <motion.div
-                key={idx}
-                className="group cursor-pointer"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.2 }}
-                viewport={{ once: true }}
-              >
-                <div className="relative h-64 rounded-lg overflow-hidden mb-4">
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent z-10 group-hover:from-primary/30 transition-all duration-300"></div>
-                  <img
-                    src={dest.image}
-                    alt={dest.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <h3 className="text-xl font-serif font-bold mb-2">{dest.name}</h3>
-                <p className="text-muted-foreground text-sm mb-4">{dest.description}</p>
-                <div className="flex items-center gap-1">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star
-                      key={i}
-                      className={`w-4 h-4 ${
-                        i < Math.floor(dest.rating)
-                          ? "fill-primary text-primary"
-                          : "text-muted"
-                      }`}
-                    />
-                  ))}
-                  <span className="text-sm text-muted-foreground ml-2">{dest.rating}</span>
-                </div>
-              </motion.div>
-            ))}
+            <div className="grid md:grid-cols-3 gap-8">
+              {destinations.map((dest, idx) => (
+                <ParallaxImage key={idx} offset={idx === 1 ? 0 : 20}>
+                  <motion.div
+                    className="group cursor-pointer"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: idx * 0.2 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="relative h-64 rounded-lg overflow-hidden mb-4">
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent z-10 group-hover:from-primary/30 transition-all duration-300"></div>
+                      <img
+                        src={dest.image}
+                        alt={dest.name}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      />
+                    </div>
+                    <h3 className="text-xl font-serif font-bold mb-2">{dest.name}</h3>
+                    <p className="text-muted-foreground text-sm mb-4">{dest.description}</p>
+                    <div className="flex items-center gap-1">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <Star
+                          key={i}
+                          className={`w-4 h-4 ${
+                            i < Math.floor(dest.rating)
+                              ? "fill-primary text-primary"
+                              : "text-muted"
+                          }`}
+                        />
+                      ))}
+                      <span className="text-sm text-muted-foreground ml-2">{dest.rating}</span>
+                    </div>
+                  </motion.div>
+                </ParallaxImage>
+              ))}
+            </div>
           </div>
-        </div>
-      </motion.section>
+        </motion.section>
+      </ParallaxSection>
 
       {/* Testimonials Section */}
-      <motion.section
-        className="py-16 md:py-24 relative bg-secondary/20 rounded-xl mx-4"
-        {...staggerContainer}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="text-center mb-16"
-            {...fadeInUp}
-          >
-            <p className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest">
-              TESTIMONIALS
-            </p>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold">
-              What Our Community Says
-            </h2>
-          </motion.div>
+      <ParallaxSection>
+        <motion.section
+          className="py-16 md:py-24 relative bg-secondary/20 rounded-xl mx-4"
+          {...staggerContainer}
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              className="text-center mb-16"
+              {...fadeInUp}
+            >
+              <p className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest">
+                TESTIMONIALS
+              </p>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold">
+                What Our Community Says
+              </h2>
+            </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, idx) => (
-              <motion.div
-                key={idx}
-                className="bg-background/50 backdrop-blur p-8 rounded-lg border border-border hover:border-primary/50 transition-all"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.2 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -5 }}
-              >
-                <p className="text-muted-foreground mb-6 italic">"{testimonial.text}"</p>
-                <div className="flex items-center gap-4">
-                  <img
-                    src={testimonial.avatar}
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full"
-                  />
-                  <div>
-                    <p className="font-semibold text-foreground">{testimonial.name}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+            <div className="grid md:grid-cols-3 gap-8">
+              {testimonials.map((testimonial, idx) => (
+                <motion.div
+                  key={idx}
+                  className="bg-background/50 backdrop-blur p-8 rounded-lg border border-border hover:border-primary/50 transition-all"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: idx * 0.2 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -5 }}
+                >
+                  <p className="text-muted-foreground mb-6 italic">"{testimonial.text}"</p>
+                  <div className="flex items-center gap-4">
+                    <img
+                      src={testimonial.avatar}
+                      alt={testimonial.name}
+                      className="w-12 h-12 rounded-full"
+                    />
+                    <div>
+                      <p className="font-semibold text-foreground">{testimonial.name}</p>
+                      <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
-      </motion.section>
+        </motion.section>
+      </ParallaxSection>
 
       {/* Newsletter Section */}
       <motion.section
@@ -445,26 +491,28 @@ export default function Index() {
       </motion.section>
 
       {/* CTA Section */}
-      <motion.section
-        className="py-16 md:py-24 relative"
-        {...fadeInUp}
-      >
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
-            Ready to Explore?
-          </h2>
-          <p className="text-muted-foreground text-lg mb-8">
-            Browse our comprehensive guides and start planning your next beach adventure today.
-          </p>
-          <motion.button
-            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Explore Destinations <ChevronRight className="w-5 h-5" />
-          </motion.button>
-        </div>
-      </motion.section>
+      <ParallaxSection>
+        <motion.section
+          className="py-16 md:py-24 relative"
+          {...fadeInUp}
+        >
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
+              Ready to Explore?
+            </h2>
+            <p className="text-muted-foreground text-lg mb-8">
+              Browse our comprehensive guides and start planning your next beach adventure today.
+            </p>
+            <motion.button
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Explore Destinations <ChevronRight className="w-5 h-5" />
+            </motion.button>
+          </div>
+        </motion.section>
+      </ParallaxSection>
 
       {/* Footer */}
       <motion.footer
@@ -508,7 +556,7 @@ export default function Index() {
           </div>
           <div className="border-t border-border pt-8">
             <p className="text-muted-foreground text-sm">
-              Copyright © 2024 COAST. All rights reserved.
+              Copyright © 2024 COAST. All rights reserved. | Built by LeeuwinDev
             </p>
           </div>
         </div>
