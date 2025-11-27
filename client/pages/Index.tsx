@@ -234,7 +234,10 @@ export default function Index() {
       </header>
 
       {/* Hero Section with Parallax */}
-      <section id="hero" className="pt-32 pb-16 md:pt-40 md:pb-24 relative overflow-hidden">
+      <section
+        id="hero"
+        className="pt-32 pb-16 md:pt-40 md:pb-24 relative overflow-hidden"
+      >
         <ParallaxImage offset={80}>
           <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/30 via-background to-background"></div>
         </ParallaxImage>
@@ -254,7 +257,11 @@ export default function Index() {
                 >
                   <motion.div
                     animate={{ rotate: 360 }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
                   >
                     <Waves className="w-4 h-4" />
                   </motion.div>
@@ -359,7 +366,8 @@ export default function Index() {
                     }
                   }}
                 >
-                  read more <ChevronRight className="w-4 h-4 group-hover:rotate-90 transition-transform" />
+                  read more{" "}
+                  <ChevronRight className="w-4 h-4 group-hover:rotate-90 transition-transform" />
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
                 </motion.a>
               </motion.div>
@@ -405,7 +413,8 @@ export default function Index() {
                     }
                   }}
                 >
-                  read more <ChevronRight className="w-4 h-4 group-hover:rotate-90 transition-transform" />
+                  read more{" "}
+                  <ChevronRight className="w-4 h-4 group-hover:rotate-90 transition-transform" />
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
                 </motion.a>
               </motion.div>
@@ -479,7 +488,8 @@ export default function Index() {
                     }
                   }}
                 >
-                  read more <ChevronRight className="w-4 h-4 group-hover:rotate-90 transition-transform" />
+                  read more{" "}
+                  <ChevronRight className="w-4 h-4 group-hover:rotate-90 transition-transform" />
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
                 </motion.a>
               </motion.div>
@@ -654,7 +664,11 @@ export default function Index() {
       </ParallaxSection>
 
       {/* Newsletter Section */}
-      <motion.section id="contact" className="py-16 md:py-24 relative" {...fadeInUp}>
+      <motion.section
+        id="contact"
+        className="py-16 md:py-24 relative"
+        {...fadeInUp}
+      >
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-br from-primary/15 via-primary/8 to-background rounded-2xl p-12 border border-primary/30 overflow-hidden relative group hover:border-primary/50 transition-all duration-300">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -808,9 +822,7 @@ export default function Index() {
               </ul>
             </motion.div>
             <motion.div {...fadeInUp}>
-              <h4 className="font-semibold mb-4 text-foreground">
-                More Info
-              </h4>
+              <h4 className="font-semibold mb-4 text-foreground">More Info</h4>
               <ul className="space-y-2">
                 {[
                   "Privacy Policy",
