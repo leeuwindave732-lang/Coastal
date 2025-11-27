@@ -468,11 +468,19 @@ export default function Index() {
                   helps you plan the perfect day and stay safe.
                 </p>
                 <motion.a
-                  href="#"
-                  className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-4 transition-all"
+                  href="#destinations"
+                  className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-4 transition-all relative group"
                   whileHover={{ x: 5 }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const element = document.getElementById("destinations");
+                    if (element) {
+                      element.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
                 >
-                  read more <ChevronRight className="w-4 h-4" />
+                  read more <ChevronRight className="w-4 h-4 group-hover:rotate-90 transition-transform" />
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
                 </motion.a>
               </motion.div>
             </div>
