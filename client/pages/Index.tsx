@@ -666,16 +666,31 @@ export default function Index() {
       <ParallaxSection>
         <motion.section className="py-16 md:py-24 relative" {...fadeInUp}>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
+            <motion.h2
+              className="text-4xl md:text-5xl font-serif font-bold mb-6 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
               Ready to Explore?
-            </h2>
-            <p className="text-muted-foreground text-lg mb-8">
+            </motion.h2>
+            <motion.p
+              className="text-muted-foreground text-lg mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              viewport={{ once: true }}
+            >
               Browse our comprehensive guides and start planning your next beach
               adventure today.
-            </p>
+            </motion.p>
             <motion.button
-              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
-              whileHover={{ scale: 1.05 }}
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground px-10 py-4 rounded-lg font-semibold hover:shadow-lg hover:shadow-primary/30 transition-all border border-primary/50"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.08, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
               Explore Destinations <ChevronRight className="w-5 h-5" />
