@@ -225,7 +225,7 @@ export default function Index() {
       </header>
 
       {/* Hero Section with Parallax */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-24 relative overflow-hidden">
+      <section id="hero" className="pt-32 pb-16 md:pt-40 md:pb-24 relative overflow-hidden">
         <ParallaxImage offset={80}>
           <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/30 via-background to-background"></div>
         </ParallaxImage>
