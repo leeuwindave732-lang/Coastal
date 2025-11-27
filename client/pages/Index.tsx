@@ -6,6 +6,10 @@ import {
   MapPin,
   Star,
   ArrowUp,
+  Facebook,
+  Instagram,
+  Twitter,
+  Mail,
 } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
