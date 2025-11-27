@@ -447,6 +447,7 @@ export default function Index() {
       {/* Featured Destinations Section */}
       <ParallaxSection>
         <motion.section
+          id="destinations"
           className="py-16 md:py-24 relative"
           {...staggerContainer}
         >
