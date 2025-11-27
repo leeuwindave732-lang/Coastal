@@ -197,13 +197,26 @@ export default function Index() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
             >
-              {["Home", "Destinations", "About", "Contact"].map((item) => (
+              {[
+                { label: "Home", id: "hero" },
+                { label: "Destinations", id: "destinations" },
+                { label: "About", id: "about" },
+                { label: "Contact", id: "contact" },
+              ].map((item) => (
                 <a
-                  key={item}
-                  href="#"
+                  key={item.label}
+                  href={`#${item.id}`}
                   className="text-sm font-medium hover:text-primary transition"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMobileMenuOpen(false);
+                    const element = document.getElementById(item.id);
+                    if (element) {
+                      element.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
                 >
-                  {item}
+                  {item.label}
                 </a>
               ))}
             </motion.nav>
