@@ -136,17 +136,26 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-hidden">
       {/* Header */}
-      <header className="fixed top-0 w-full bg-background/80 backdrop-blur-lg z-50 border-b border-border">
+      <header className="fixed top-0 w-full bg-background/70 backdrop-blur-xl z-50 border-b border-border/50 hover:border-border transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
-            <motion.h1
-              className="text-3xl font-serif font-bold text-primary"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+            <motion.div
+              className="relative group cursor-pointer"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              COAST
-            </motion.h1>
+              <motion.div
+                className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-primary/0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                initial={false}
+              ></motion.div>
+              <motion.h1
+                className="text-3xl font-serif font-bold text-primary relative z-10"
+                whileHover={{ scale: 1.05 }}
+              >
+                COAST
+              </motion.h1>
+            </motion.div>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex gap-8">
