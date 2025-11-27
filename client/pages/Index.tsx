@@ -554,15 +554,22 @@ export default function Index() {
       {/* Testimonials Section */}
       <ParallaxSection>
         <motion.section
-          className="py-16 md:py-24 relative bg-secondary/20 rounded-xl mx-4"
+          className="py-16 md:py-24 relative bg-gradient-to-br from-secondary/30 via-secondary/10 to-background rounded-3xl mx-4 border border-border/30"
           {...staggerContainer}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div className="text-center mb-16" {...fadeInUp}>
-              <p className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest">
-                TESTIMONIALS
-              </p>
-              <h2 className="text-4xl md:text-5xl font-serif font-bold">
+              <motion.div
+                className="inline-block"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <p className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest bg-primary/10 w-fit px-4 py-2 rounded-full mx-auto">
+                  TESTIMONIALS
+                </p>
+              </motion.div>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
                 What Our Community Says
               </h2>
             </motion.div>
