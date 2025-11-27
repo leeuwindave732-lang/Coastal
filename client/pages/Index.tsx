@@ -233,28 +233,38 @@ export default function Index() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <motion.div {...fadeInUp}>
-              <motion.p
-                className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest flex items-center gap-2"
+              <motion.div
+                className="inline-block"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                <Waves className="w-4 h-4" />
-                EXPLORE THE COAST
-              </motion.p>
+                <motion.p
+                  className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest flex items-center gap-2 bg-primary/10 w-fit px-4 py-2 rounded-full"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                  >
+                    <Waves className="w-4 h-4" />
+                  </motion.div>
+                  EXPLORE THE COAST
+                </motion.p>
+              </motion.div>
               <motion.h2
-                className="text-5xl md:text-7xl font-serif font-bold mb-6 leading-tight"
+                className="text-5xl md:text-7xl font-serif font-bold mb-6 leading-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
               >
                 Discover Your Next Beach Escape
               </motion.h2>
               <motion.p
                 className="text-muted-foreground text-lg md:text-xl leading-relaxed mb-8"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
               >
                 From pristine sandy shores to hidden coves, find the perfect
                 beach destination for your next adventure. Whether you're
