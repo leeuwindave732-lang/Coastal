@@ -494,11 +494,12 @@ export default function Index() {
                         className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700"
                       />
                       <motion.div
-                        className="absolute top-4 right-4 z-20 bg-primary/95 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg"
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        className="absolute top-4 right-4 z-20 bg-gradient-to-r from-primary to-primary/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-primary-foreground/20 group-hover:shadow-primary/50"
+                        initial={{ opacity: 0, x: 20, scale: 0.8 }}
+                        whileInView={{ opacity: 1, x: 0, scale: 1 }}
                         transition={{ delay: idx * 0.2 + 0.3 }}
                         viewport={{ once: true }}
+                        whileHover={{ scale: 1.1 }}
                       >
                         <span className="text-xs font-bold text-primary-foreground tracking-wide">
                           {dest.tag}
