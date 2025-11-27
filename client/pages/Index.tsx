@@ -613,31 +613,51 @@ export default function Index() {
       {/* Newsletter Section */}
       <motion.section id="contact" className="py-16 md:py-24 relative" {...fadeInUp}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-primary/10 via-primary/5 to-background rounded-xl p-12 border border-primary/20">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4 text-center">
-              Stay Updated
-            </h2>
-            <p className="text-muted-foreground text-center mb-8">
-              Get the latest beach guides, travel tips, and exclusive
-              destination recommendations delivered to your inbox.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-6 py-3 bg-background/50 border border-border rounded-lg focus:outline-none focus:border-primary transition-colors"
-              />
-              <motion.button
-                className="px-8 py-3 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-colors whitespace-nowrap"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+          <div className="bg-gradient-to-br from-primary/15 via-primary/8 to-background rounded-2xl p-12 border border-primary/30 overflow-hidden relative group hover:border-primary/50 transition-all duration-300">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="relative z-10">
+              <motion.h2
+                className="text-3xl md:text-4xl font-serif font-bold mb-4 text-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
               >
-                Subscribe
-              </motion.button>
+                Stay Updated
+              </motion.h2>
+              <motion.p
+                className="text-muted-foreground text-center mb-8"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                viewport={{ once: true }}
+              >
+                Get the latest beach guides, travel tips, and exclusive
+                destination recommendations delivered to your inbox.
+              </motion.p>
+              <motion.div
+                className="flex flex-col sm:flex-row gap-4"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="flex-1 px-6 py-3 bg-background/70 border border-border rounded-lg focus:outline-none focus:border-primary focus:bg-background transition-all focus:ring-2 focus:ring-primary/20"
+                />
+                <motion.button
+                  className="px-8 py-3 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground font-semibold rounded-lg hover:shadow-lg hover:shadow-primary/30 transition-all whitespace-nowrap"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Subscribe
+                </motion.button>
+              </motion.div>
+              <p className="text-xs text-muted-foreground text-center mt-4">
+                We respect your privacy. Unsubscribe anytime.
+              </p>
             </div>
-            <p className="text-xs text-muted-foreground text-center mt-4">
-              We respect your privacy. Unsubscribe anytime.
-            </p>
           </div>
         </div>
       </motion.section>
