@@ -454,11 +454,18 @@ export default function Index() {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div className="text-center mb-16" {...fadeInUp}>
-              <p className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest flex items-center justify-center gap-2">
-                <MapPin className="w-4 h-4" />
-                FEATURED DESTINATIONS
-              </p>
-              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
+              <motion.div
+                className="inline-block"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <p className="text-primary text-sm md:text-base font-semibold mb-4 tracking-widest flex items-center justify-center gap-2 bg-primary/10 w-fit px-4 py-2 rounded-full mx-auto">
+                  <MapPin className="w-4 h-4" />
+                  FEATURED DESTINATIONS
+                </p>
+              </motion.div>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
                 Explore Stunning Beaches
               </h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
