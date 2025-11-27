@@ -150,15 +150,28 @@ export default function Index() {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex gap-8">
-              {["Home", "Destinations", "About", "Contact"].map((item) => (
+              {[
+                { label: "Home", id: "hero" },
+                { label: "Destinations", id: "destinations" },
+                { label: "About", id: "about" },
+                { label: "Contact", id: "contact" },
+              ].map((item) => (
                 <motion.a
-                  key={item}
-                  href="#"
-                  className="hover:text-primary transition text-sm font-medium"
-                  whileHover={{ scale: 1.1 }}
+                  key={item.label}
+                  href={`#${item.id}`}
+                  className="hover:text-primary transition text-sm font-medium relative group"
+                  whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const element = document.getElementById(item.id);
+                    if (element) {
+                      element.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
                 >
-                  {item}
+                  {item.label}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
                 </motion.a>
               ))}
             </nav>
