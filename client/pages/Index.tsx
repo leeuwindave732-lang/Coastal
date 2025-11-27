@@ -646,70 +646,104 @@ export default function Index() {
 
       {/* Footer */}
       <motion.footer
-        className="border-t border-border py-16 md:py-24"
+        className="border-t border-border py-16 md:py-24 bg-gradient-to-b from-background to-secondary/5"
         {...fadeInUp}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 mb-12">
-            <div>
+          <div className="grid md:grid-cols-3 gap-12 mb-12">
+            <motion.div {...fadeInUp}>
               <h3 className="text-3xl font-serif font-bold mb-4 text-primary">
                 COAST
               </h3>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground mb-6">
                 Discover the beauty of coastal adventures. From pristine beaches
                 to hidden coves, explore the world's most beautiful shores.
               </p>
-            </div>
-            <div className="grid grid-cols-2 gap-8">
-              <div>
-                <h4 className="font-semibold mb-4 text-foreground">
-                  Quick Links
-                </h4>
-                <ul className="space-y-2">
-                  {["About Us", "Destinations", "Blog", "Contact"].map(
-                    (link) => (
-                      <li key={link}>
-                        <a
-                          href="#"
-                          className="text-muted-foreground hover:text-primary transition"
-                        >
-                          {link}
-                        </a>
-                      </li>
-                    ),
-                  )}
-                </ul>
+              <div className="flex gap-4">
+                {[
+                  { icon: Facebook, label: "Facebook" },
+                  { icon: Instagram, label: "Instagram" },
+                  { icon: Twitter, label: "Twitter" },
+                  { icon: Mail, label: "Email" },
+                ].map(({ icon: Icon, label }) => (
+                  <motion.a
+                    key={label}
+                    href="#"
+                    className="p-2 rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-all"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    whileTap={{ scale: 0.95 }}
+                    title={label}
+                  >
+                    <Icon className="w-5 h-5" />
+                  </motion.a>
+                ))}
               </div>
-              <div>
-                <h4 className="font-semibold mb-4 text-foreground">
-                  More Info
-                </h4>
-                <ul className="space-y-2">
-                  {[
-                    "Privacy Policy",
-                    "Terms & Conditions",
-                    "Sustainability",
-                    "Partners",
-                  ].map((link) => (
-                    <li key={link}>
-                      <a
-                        href="#"
-                        className="text-muted-foreground hover:text-primary transition"
-                      >
-                        {link}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            </motion.div>
+            <motion.div {...fadeInUp}>
+              <h4 className="font-semibold mb-4 text-foreground">
+                Quick Links
+              </h4>
+              <ul className="space-y-2">
+                {[
+                  { label: "Home", id: "hero" },
+                  { label: "Destinations", id: "destinations" },
+                  { label: "About", id: "about" },
+                  { label: "Contact", id: "contact" },
+                ].map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={`#${link.id}`}
+                      className="text-muted-foreground hover:text-primary transition relative group inline-block"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const element = document.getElementById(link.id);
+                        if (element) {
+                          element.scrollIntoView({ behavior: "smooth" });
+                        }
+                      }}
+                    >
+                      {link.label}
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+            <motion.div {...fadeInUp}>
+              <h4 className="font-semibold mb-4 text-foreground">
+                More Info
+              </h4>
+              <ul className="space-y-2">
+                {[
+                  "Privacy Policy",
+                  "Terms & Conditions",
+                  "Sustainability",
+                  "Partners",
+                ].map((link) => (
+                  <li key={link}>
+                    <a
+                      href="#"
+                      className="text-muted-foreground hover:text-primary transition relative group inline-block"
+                    >
+                      {link}
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+          <motion.div className="border-t border-border pt-8" {...fadeInUp}>
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              <p className="text-muted-foreground text-sm">
+                Copyright © 2025 COAST. All rights reserved. | Built by
+                LeeuwinDev
+              </p>
+              <p className="text-muted-foreground text-xs">
+                Explore. Discover. Experience the Coast.
+              </p>
             </div>
-          </div>
-          <div className="border-t border-border pt-8">
-            <p className="text-muted-foreground text-sm">
-              Copyright © 2025 COAST. All rights reserved. | Built by
-              LeeuwinDev
-            </p>
-          </div>
+          </motion.div>
         </div>
       </motion.footer>
 
