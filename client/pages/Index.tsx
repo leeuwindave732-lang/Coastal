@@ -591,7 +591,7 @@ export default function Index() {
       </ParallaxSection>
 
       {/* Newsletter Section */}
-      <motion.section className="py-16 md:py-24 relative" {...fadeInUp}>
+      <motion.section id="contact" className="py-16 md:py-24 relative" {...fadeInUp}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-br from-primary/10 via-primary/5 to-background rounded-xl p-12 border border-primary/20">
             <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4 text-center">
