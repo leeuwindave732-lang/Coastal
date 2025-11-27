@@ -506,32 +506,36 @@ export default function Index() {
                         </span>
                       </motion.div>
                     </div>
-                    <div className="flex-1 bg-gradient-to-br from-card via-card to-secondary/10 p-6 rounded-2xl border border-border/30 group-hover:border-primary/40 transition-all duration-300 backdrop-blur-sm">
+                    <div className="flex-1 bg-gradient-to-br from-card via-card to-secondary/10 p-6 rounded-2xl border border-border/30 group-hover:border-primary/40 transition-all duration-300 backdrop-blur-sm group-hover:bg-gradient-to-br group-hover:from-card group-hover:via-card group-hover:to-primary/5 z-10">
                       <h3 className="text-2xl font-serif font-bold mb-2 group-hover:text-primary transition-colors duration-300">
                         {dest.name}
                       </h3>
-                      <p className="text-muted-foreground text-xs mb-4 font-medium tracking-wide">
+                      <p className="text-muted-foreground text-xs mb-4 font-medium tracking-wide flex items-center gap-2">
                         <span className="text-primary">📍</span> {dest.bestTime}
                       </p>
-                      <p className="text-muted-foreground text-sm mb-4 leading-relaxed flex-grow">
+                      <p className="text-muted-foreground text-sm mb-4 leading-relaxed flex-grow group-hover:text-muted-foreground transition-colors">
                         {dest.description}
                       </p>
-                      <div className="mb-4 p-3 bg-primary/5 rounded-lg border border-primary/10">
-                        <p className="text-xs text-muted-foreground">
-                          👥 {dest.visitors}
+                      <div className="mb-4 p-3 bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg border border-primary/20 group-hover:border-primary/40 transition-all">
+                        <p className="text-xs text-muted-foreground flex items-center gap-2">
+                          <span>👥</span> {dest.visitors}
                         </p>
                       </div>
-                      <div className="flex items-center gap-3 pt-4 border-t border-border/20">
+                      <div className="flex items-center gap-3 pt-4 border-t border-border/20 group-hover:border-primary/30 transition-colors">
                         <div className="flex items-center gap-1.5">
                           {Array.from({ length: 5 }).map((_, i) => (
-                            <Star
+                            <motion.div
                               key={i}
-                              className={`w-4 h-4 transition-all ${
-                                i < Math.floor(dest.rating)
-                                  ? "fill-primary text-primary"
-                                  : "text-muted"
-                              }`}
-                            />
+                              whileHover={{ scale: 1.2, rotate: 5 }}
+                            >
+                              <Star
+                                className={`w-4 h-4 transition-all ${
+                                  i < Math.floor(dest.rating)
+                                    ? "fill-primary text-primary"
+                                    : "text-muted"
+                                }`}
+                              />
+                            </motion.div>
                           ))}
                         </div>
                         <span className="text-sm font-bold text-foreground ml-1">
