@@ -478,19 +478,20 @@ export default function Index() {
               {destinations.map((dest, idx) => (
                 <ParallaxImage key={idx} offset={idx === 1 ? 0 : 20}>
                   <motion.div
-                    className="group cursor-pointer h-full flex flex-col"
+                    className="group cursor-pointer h-full flex flex-col relative"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: idx * 0.2 }}
                     viewport={{ once: true }}
-                    whileHover={{ y: -8 }}
+                    whileHover={{ y: -12 }}
                   >
-                    <div className="relative h-72 rounded-2xl overflow-hidden mb-6 shadow-xl group-hover:shadow-2xl transition-all duration-300 border border-border/40 group-hover:border-primary/50">
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/30 to-transparent z-10 group-hover:from-primary/50 group-hover:via-primary/10 transition-all duration-300"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
+                    <div className="relative h-72 rounded-2xl overflow-hidden mb-6 shadow-xl group-hover:shadow-2xl transition-all duration-300 border border-border/40 group-hover:border-primary/50 z-10">
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent z-10 group-hover:from-primary/40 group-hover:via-primary/5 transition-all duration-300"></div>
                       <img
                         src={dest.image}
                         alt={dest.name}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700"
                       />
                       <motion.div
                         className="absolute top-4 right-4 z-20 bg-primary/95 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg"
