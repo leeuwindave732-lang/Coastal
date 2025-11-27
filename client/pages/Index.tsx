@@ -261,8 +261,8 @@ export default function Index() {
                 seeking relaxation or adventure, the coast awaits.
               </motion.p>
               <motion.button
-                className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-4 transition-all bg-primary/10 px-6 py-3 rounded-lg hover:bg-primary/20"
-                whileHover={{ scale: 1.05 }}
+                className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-4 transition-all bg-gradient-to-r from-primary/20 to-primary/10 px-8 py-3 rounded-lg hover:bg-gradient-to-r hover:from-primary/30 hover:to-primary/20 border border-primary/30 hover:border-primary/50 shadow-lg hover:shadow-primary/20"
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
                 Start Exploring <ChevronRight className="w-5 h-5" />
