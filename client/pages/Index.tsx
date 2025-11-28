@@ -80,7 +80,7 @@ export default function Index() {
     {
       name: "Bali, Indonesia",
       image:
-        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600",
+        "https://images.unsplash.com/photo-1577717903315-1691ae25ab3f?fm=jpg&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmFsaSUyMGJlYWNofGVufDB8fDB8fHww&ixlib=rb-4.1.0&q=60&w=3000",
       description: "Crystal clear waters and pristine white sand beaches",
       rating: 4.9,
       tag: "Tropical Paradise",
@@ -90,7 +90,7 @@ export default function Index() {
     {
       name: "Maldives",
       image:
-        "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600",
+        "https://us.images.westend61.de/0001938086pw/aerial-view-of-tropical-island-with-lagoon-the-maldives-indian-ocean-asia-RHPLF31738.jpg",
       description: "Overwater bungalows with turquoise lagoons",
       rating: 5.0,
       tag: "Luxury Escape",
@@ -100,7 +100,7 @@ export default function Index() {
     {
       name: "Santorini, Greece",
       image:
-        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600",
+        "https://www.royalcaribbean.com/media-assets/pmc/content/dam/shore-x/santorini-jtr/soc4-sailing-the-caldera-of-santorini/stock-photo-ammoudi-bay-oia-village-santorini-greece_630008048.jpg?w=1440",
       description: "Stunning sunsets and golden sandy beaches",
       rating: 4.8,
       tag: "Romantic Getaway",
